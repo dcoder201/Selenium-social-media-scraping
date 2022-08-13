@@ -11,6 +11,12 @@ import time
 # For infinite scrolling with help of page down key
 from selenium.webdriver.common.keys import Keys
 
+# end user can provide username and password for fb and instagram
+fb_username=''
+fb_password=''
+
+insta_username=''
+insta_passsword=''
 
 # function to perform facebook automation
 def open_fb():
@@ -27,9 +33,9 @@ def open_fb():
     # getting url for facebook authentication
     driver.get("https://www.facebook.com/login/")
     # getting username field using xpath and filling required credentials
-    driver.find_element(By.XPATH, "//*[@id='email']").send_keys('***********')
+    driver.find_element(By.XPATH, "//*[@id='email']").send_keys(fb_username)
     # getting password field using xpath and filling required credentials
-    driver.find_element(By.XPATH, "//*[@id='pass']").send_keys('*********')
+    driver.find_element(By.XPATH, "//*[@id='pass']").send_keys(fb_password)
     # getting login button using name and executed click action
     driver.find_element(By.NAME, "login").click()
     # delaying process while browser loads full contents
@@ -59,9 +65,9 @@ def open_insta():
     # delaying process while browser loads full contents
     time.sleep(10)
     # getting username field using name and filling required credentials
-    driver.find_element(By.NAME, "username").send_keys('************')
+    driver.find_element(By.NAME, "username").send_keys(insta_username)
     # getting password field using css_selector and filling required credentials
-    driver.find_element(By.CSS_SELECTOR, "input[name='password']").send_keys('********')
+    driver.find_element(By.CSS_SELECTOR, "input[name='password']").send_keys(insta_password')
     # getting login button using xpath and executes click action
     driver.find_element(By.XPATH, "/html/body/div[1]/section/main/div/div/div[1]/div[2]/form/div/div[3]/button").click()
     time.sleep(8)
